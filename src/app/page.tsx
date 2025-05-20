@@ -22,9 +22,11 @@ export default function HomePage() {
 
         {/* Right section */}
         <div className="flex md:order-2 space-x-2">
+          <Link href="/login">
           <Button variant="outline" className="border-primary text-primary hover:bg-primary/10">
             Sign In
           </Button>
+          </Link>
           <ThemeToggle />
           <button
             data-collapse-toggle="navbar-cta"
