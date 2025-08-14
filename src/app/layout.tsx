@@ -18,8 +18,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ThemeScript /> {/* ✅ Run before anything else */}
-        <Navbar />
-        <LayoutClient>{children}</LayoutClient>
+        <LayoutClient>
+          <Navbar />
+          {children}
+        </LayoutClient>
       </body>
     </html>
   );

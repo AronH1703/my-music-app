@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
 import { useRouter } from 'next/navigation';
 import { Button } from '../components/ui/button';
@@ -16,7 +16,7 @@ export default function Profile() {
     if (!session) {
       router.push('/login');
     }
-  }, [session]);
+  }, [session, router]);
 
   // Log out
   const handleLogout = async () => {
@@ -28,7 +28,7 @@ export default function Profile() {
   if (!session) return null;
 
   // Example user data
-  const [user, setUser] = useState({
+  const user = {
     name: 'Music Lover',
     email: session.user.email,
     likedSongs: [
@@ -47,7 +47,7 @@ export default function Profile() {
           'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=500&q=60',
       },
     ],
-  });
+  };
 
   return (
     <div className="container max-w-xl mx-auto py-4">
